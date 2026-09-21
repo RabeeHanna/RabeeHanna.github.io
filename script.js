@@ -67,7 +67,8 @@
       panels[i].classList.toggle('project-enter', i === index);
     });
     const choices = visibleTabs();
-    browser.querySelector('.project-count').textContent = `${choices.indexOf(tabs[index]) + 1} / ${choices.length} projects`;
+    const count = `${choices.indexOf(tabs[index]) + 1} / ${choices.length} projects`;
+    browser.querySelectorAll('.project-count').forEach(element => { element.textContent = count; });
     if (focus) tabs[index].focus({preventScroll:true});
   }
   companies.forEach(button => button.addEventListener('click', () => {
